@@ -6,5 +6,3 @@ npm install
 
 node setup.js
 chmod +x mylib-gen
-
-sudo cp mylib-gen /usr/bin/mylib-gen
