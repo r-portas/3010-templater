@@ -1,0 +1,16 @@
+{
+  "name": "mylib-generator",
+  "version": "1.0.0",
+  "description": "Generates .c and .h files for CSSE3010",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "Roy Portas",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "readline-sync": "^1.4.1"
+  }
+}
