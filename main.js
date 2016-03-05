@@ -2,6 +2,7 @@ var Templater = require('./templater.js');
 var fs = require('fs');
 var path = require('path');
 var rl = require('readline-sync');
+var access = require('fs-access');
 
 var curDate = new Date();
 var userFile = path.join(__dirname, 'user.json');
@@ -23,11 +24,15 @@ function getFields() {
 }
 
 function loadConfig(callback) {
-  fs.access(userFile, fs.R_OK, function(err) {
+  access(userFile, function(err) {
     if (err) {
       // File does not exist
       saveConfig(function() {
-        loadConfig();
+        loadConfig(function() {
+          getFields();
+          console.log("Generating template files");
+          var template = new Templater('template', userData);
+        });
       });
     } else {
       var raw = fs.readFileSync(userFile, 'utf-8');
